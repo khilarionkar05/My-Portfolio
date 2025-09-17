@@ -56,6 +56,26 @@
         </section>
         
     </div>
+     </div>
+    
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+    
+        menuToggle.addEventListener('click', () => {
+            // Toggles the 'active' class on the navbar to show/hide it
+            navbar.classList.toggle('active');
+        });
+    
+        // Optional: Close the menu when a link is clicked (good for single-page sites)
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+    </script>
+    
+</body>
     
 </body>
 </html>

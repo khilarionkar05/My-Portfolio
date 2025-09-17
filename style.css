@@ -191,63 +191,113 @@ body {
     max-width: 100%;
     height: auto;
 }
-/* Mobile styles */
+/* Mobile styles - REPLACE your old @media block with this one */
 @media (max-width: 768px) {
 
-  /* Container for home section */
-  .home {
-    flex-direction: column-reverse; /* image on top, text below */
-    text-align: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-  }
+    .header {
+        /* Adjust padding for mobile screens */
+        padding: 20px 5%;
+    }
 
-  /* Headings */
-  .home-detail h1 {
-    font-size: 28px;
-  }
+    .logo {
+        /* Bring the logo back into view as it was pushed by the old navbar margin */
+        margin-left: 0;
+    }
 
-  .home-detail h2 {
-    font-size: 20px;
-  }
+    /* --- Hamburger Menu Button --- */
+    .menu-toggle {
+        display: flex; /* Make it visible on mobile */
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; /* Ensure it's on top of everything */
+        position: absolute; /* Position relative to the header */
+        top: 25px;
+        right: 5%;
+    }
 
-  .home-detail p {
-    font-size: 16px;
-    line-height: 1.5;
-    max-width: 90%;
-    margin: 0 auto;
-  }
+    .menu-toggle span {
+        width: 100%;
+        height: 3px;
+        background-color: #fff; /* White bars */
+        border-radius: 5px;
+    }
 
-  /* Navigation menu */
-  .navbar {
-    display: flex;
-    flex-direction: column; /* Stack links vertically */
-    gap: 10px;
-    font-size: 14px;
-  }
+    /* --- Navigation Menu Panel --- */
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh; /* Full screen height */
+        width: 75%; /* Cover most of the screen */
+        background: rgba(18, 10, 48, 0.95); /* Your theme's dark color, slightly transparent */
+        backdrop-filter: blur(10px);
+        z-index: 1000;
 
-  /* Home image */
-  .home-img .img-box {
-    width: 50vw; /* adjust size for mobile */
-    height: 50vw;
-  }
+        /* Change from display:flex to flex-direction:column */
+        display: flex;
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
+        justify-content: center;
+        gap: 25px; /* Space out the links */
 
-  /* Resume button */
-  .download-social .btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-top: 10px;
-    display: inline-block;
-  }
+        /* Hide it by default */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
 
-  /* Social icons */
-  .social-icons {
-    justify-content: center;
-    margin-top: 10px;
-    gap: 15px;
-  }
+        /* Reset margins for the new layout */
+        margin: 0;
+    }
+
+    /* This class will be added by JavaScript to show the menu */
+    .navbar.active {
+        transform: translateX(0); /* Slide it into view */
+    }
+
+    .navbar a {
+        margin-left: 0; /* Remove desktop margin */
+        font-size: 22px; /* Make text bigger and easier to tap */
+    }
+
+    /* --- Full Screen Home Section --- */
+    .home {
+        flex-direction: column-reverse; /* image on top, text below */
+        text-align: center;
+        align-items: center;
+        justify-content: center; /* Center content vertically */
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        height: 100vh; /* This makes the section fill the entire screen */
+    }
+
+    .home-img {
+        margin: 0; /* Reset desktop margins */
+    }
+
+    .home-img .img-box {
+        width: 55vw; /* adjust size for mobile */
+        height: 55vw;
+        max-width: 220px;
+        max-height: 220px;
+    }
+
+    /* Your other existing mobile styles */
+    .home-detail h1 { font-size: 28px; }
+    .home-detail h2 { font-size: 20px; }
+    .home-detail p { font-size: 16px; max-width: 95%; margin: 15px auto; }
+    .download-social { flex-direction: column; }
+    .social-icons { justify-content: center; margin-top: 20px; margin-left: 0; }
 }
+.menu-toggle {
+    display: none;
+}
+/* } */ 
 /* @media (max-width: 900px) {
   .home {
     flex-direction: column-reverse;

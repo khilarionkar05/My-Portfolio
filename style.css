@@ -191,155 +191,176 @@ body {
     max-width: 100%;
     height: auto;
 }
-/* Mobile styles - REPLACE your old @media block with this one */
-@media (max-width: 768px)
+@media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                height: auto;
+                min-height: 100vh;
+            }
 
- {
-  .container {
-    transform: none;
-    animation: none;
-}
+            .container {
+                border-radius: 20px;
+                height: auto;
+                min-height: calc(100vh - 40px);
+                animation: none;
+                transform: scale(1);
+            }
 
-    .header {
-        /* Adjust padding for mobile screens */
-        padding: 20px 5%;
-    }
-    
+            .header {
+                position: relative;
+                padding: 20px;
+                margin-bottom: 20px;
+            }
 
-    .logo {
-        /* Bring the logo back into view as it was pushed by the old navbar margin */
-        margin-left: 0;
-    }
+            .logo {
+                margin-left: 0;
+                font-size: 24px;
+            }
 
-    /* --- Hamburger Menu Button --- */
-    .menu-toggle {
-        display: flex; /* Make it visible on mobile */
-        flex-direction: column;
-        justify-content: space-around;
-        width: 30px;
-        height: 24px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001; /* Ensure it's on top of everything */
-        position: absolute; /* Position relative to the header */
-        top: 25px;
-        right: 5%;
-    }
+            /* Show hamburger menu on mobile */
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
 
-    .menu-toggle span {
-        width: 100%;
-        height: 3px;
-        background-color: #fff; /* White bars */
-        border-radius: 5px;
-    }
+            /* Mobile navigation menu */
+            .navbar {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 300px;
+                background: rgba(18, 10, 48, 0.98);
+                backdrop-filter: blur(10px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: right 0.3s ease-in-out;
+                margin: 0;
+                z-index: 1000;
+            }
 
-   /* Inside your @media (max-width: 768px) block */
+            /* Show menu when active */
+            .navbar.active {
+                right: 0;
+            }
 
-.navbar {
-    /* This is the most important property */
-    position: fixed; 
+            .navbar a {
+                margin-left: 0;
+                font-size: 20px;
+                padding: 10px;
+            }
 
-    /* These position it correctly on the screen */
-    top: 0;
-    right: 0;
-    height: 100vh; /* Full screen height */
-    z-index: 1000; /* Ensures it's on top of other content */
+            /* Adjust home section for mobile */
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 20px;
+                gap: 30px;
+                height: auto;
+                min-height: calc(100vh - 120px);
+                justify-content: center;
+            }
 
-    /* The rest of your styling */
-    width: 75%;
-    background: rgba(18, 10, 48, 0.95);
-    backdrop-filter: blur(10px); /* This adds the nice blur effect */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    margin: 0;
-}
+            .home-detail {
+                margin: 0;
+                width: 100%;
+            }
 
-    /* This class will be added by JavaScript to show the menu */
-    .navbar.active {
-        transform: translateX(0); /* Slide it into view */
-    }
+            .home-detail h1 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
 
-    .navbar a {
-        margin-left: 0; /* Remove desktop margin */
-        font-size: 22px; /* Make text bigger and easier to tap */
-    }
+            .home-detail h2 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
 
-    /* --- Full Screen Home Section --- */
-    .home {
-        flex-direction: column-reverse; /* image on top, text below */
-        text-align: center;
-        align-items: center;
-        justify-content: center; /* Center content vertically */
-        gap: 20px;
-        padding: 20px;
-        width: 100%;
-        height: 100vh; /* This makes the section fill the entire screen */
-    }
+            .home-detail p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
 
-    .home-img {
-        margin: 0; /* Reset desktop margins */
-    }
+            .download-social {
+                flex-direction: column;
+                gap: 20px;
+            }
 
-    .home-img .img-box {
-        width: 55vw; /* adjust size for mobile */
-        height: 55vw;
-        max-width: 220px;
-        max-height: 220px;
-    }
+            .social-icons {
+                margin-left: 0 !important;
+                justify-content: center;
+            }
 
-    /* Your other existing mobile styles */
-    .home-detail h1 { font-size: 28px; }
-    .home-detail h2 { font-size: 20px; }
-    .home-detail p { font-size: 16px; max-width: 95%; margin: 15px auto; }
-    .download-social { flex-direction: column; }
-    .social-icons { justify-content: center; margin-top: 20px; margin-left: 0; }
-}
-.menu-toggle {
-    display: none;
-}
-/* } */ 
-/* @media (max-width: 900px) {
-  .home {
-    flex-direction: column-reverse;
-    text-align: center;
-    justify-content: center;
-    gap: 20px;
-  }
-  .home-detail h1 {
-    font-size: 40px;
-  }
-  .home-detail h2 {
-    font-size: 28px;
-  }
-  .home-detail p {
-    font-size: 18px;
-  }
-  .home-img {
-    margin: auto;
-  }
-  .home-img .img-box {
-    width: 60vw;
-    height: 60vw;
-  } */
-/* } */
-/* @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .home-detail, .home-img {
-        width: 100%;
-        text-align: center;
-    }
-    .home-detail h1, .home-detail h2 {
-        font-size: 1.5rem;
-    }
-} */
+            .home-img {
+                margin: 0;
+            }
 
+            .home-img .img-box {
+                width: 60vw;
+                height: 60vw;
+                max-width: 250px;
+                max-height: 250px;
+                margin: 0 auto;
+            }
+
+            .animated {
+                animation: none;
+                transform: none;
+                opacity: 1;
+            }
+        }
+
+        /* Tablet styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .logo {
+                margin-left: 40px;
+            }
+
+            .navbar {
+                margin-right: 40px;
+            }
+
+            .home-detail h1 {
+                font-size: 45px;
+            }
+
+            .home-detail h2 {
+                font-size: 28px;
+            }
+
+            .home-img .img-box {
+                width: 35vw;
+                height: 35vw;
+                max-width: 350px;
+                max-height: 350px;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .home-detail h1 {
+                font-size: 28px;
+            }
+
+            .home-detail h2 {
+                font-size: 18px;
+            }
+
+            .home-detail p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 8px 25px;
+                font-size: 14px;
+            }
+
+            .social-icons a {
+                font-size: 18px;
+                padding: 6px;
+            }
+        }

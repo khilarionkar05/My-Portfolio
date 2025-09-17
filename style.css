@@ -192,12 +192,19 @@ body {
     height: auto;
 }
 /* Mobile styles - REPLACE your old @media block with this one */
-@media (max-width: 768px) {
+@media (max-width: 768px)
+
+ {
+  .container {
+    transform: none;
+    animation: none;
+}
 
     .header {
         /* Adjust padding for mobile screens */
         padding: 20px 5%;
     }
+    
 
     .logo {
         /* Bring the logo back into view as it was pushed by the old navbar margin */

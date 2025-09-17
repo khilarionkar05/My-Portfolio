@@ -21,6 +21,12 @@
         <header class="animated">
             <h1> <br></h1>
             <a href="#" class="logo">Portfolio.</a>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
             <nav class="navbar">
                 
@@ -61,17 +67,28 @@
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navbar = document.querySelector('.navbar');
-    
+        
         menuToggle.addEventListener('click', () => {
-            // Toggles the 'active' class on the navbar to show/hide it
             navbar.classList.toggle('active');
+            
+            // Optional: Animate hamburger to X
+            menuToggle.classList.toggle('active');
         });
-    
-        // Optional: Close the menu when a link is clicked (good for single-page sites)
+        
+        // Close menu when a link is clicked
         document.querySelectorAll('.navbar a').forEach(link => {
             link.addEventListener('click', () => {
                 navbar.classList.remove('active');
+                menuToggle.classList.remove('active');
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navbar.contains(e.target)) {
+                navbar.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
         });
     </script>
     

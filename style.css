@@ -228,31 +228,31 @@ body {
         border-radius: 5px;
     }
 
-    /* --- Navigation Menu Panel --- */
-    .navbar {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh; /* Full screen height */
-        width: 75%; /* Cover most of the screen */
-        background: rgba(18, 10, 48, 0.95); /* Your theme's dark color, slightly transparent */
-        backdrop-filter: blur(10px);
-        z-index: 1000;
+   /* Inside your @media (max-width: 768px) block */
 
-        /* Change from display:flex to flex-direction:column */
-        display: flex;
-        flex-direction: column; /* Stack links vertically */
-        align-items: center;
-        justify-content: center;
-        gap: 25px; /* Space out the links */
+.navbar {
+    /* This is the most important property */
+    position: fixed; 
 
-        /* Hide it by default */
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
+    /* These position it correctly on the screen */
+    top: 0;
+    right: 0;
+    height: 100vh; /* Full screen height */
+    z-index: 1000; /* Ensures it's on top of other content */
 
-        /* Reset margins for the new layout */
-        margin: 0;
-    }
+    /* The rest of your styling */
+    width: 75%;
+    background: rgba(18, 10, 48, 0.95);
+    backdrop-filter: blur(10px); /* This adds the nice blur effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    margin: 0;
+}
 
     /* This class will be added by JavaScript to show the menu */
     .navbar.active {

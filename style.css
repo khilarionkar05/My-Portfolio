@@ -192,6 +192,10 @@ body {
     height: auto;
 }
 @media (max-width: 768px) {
+  .container {
+    transform: none;
+    animation: none;
+}
             body {
                 padding: 20px 10px;
                 height: auto;

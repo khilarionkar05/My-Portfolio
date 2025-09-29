@@ -1,7 +1,7 @@
 Khilari Onkar - Portfolio
 Welcome to the repository for my personal portfolio website. This project is a comprehensive showcase of my journey as an aspiring AI/ML Engineer and a full-stack developer in training. It serves as a central hub for my projects, skills, and professional aspirations.
 
-You can view the live deployment of this portfolio here: onkarkhilari-portfolio.netlify.app
+You can view the live deployment of this portfolio here:  https://onkarkhilari-portfolio.netlify.app/
 
 👋 About Me
 I'm Khilari Onkar, a passionate and driven second-year student pursuing a B.Tech in Computer Science & Engineering with a specialization in AI & Machine Learning at Sandip University, Nashik. I am deeply fascinated by the potential of artificial intelligence to solve complex, real-world problems and am dedicated to building a strong foundation in both software development and machine learning.
